@@ -30,9 +30,7 @@ public class TodoDao {
 
                 list.add(todo);
             }
-
         }
-
         return list;
     }
 
@@ -51,7 +49,5 @@ public class TodoDao {
 
             return rows == 1;
         }
-
     }
-
 }

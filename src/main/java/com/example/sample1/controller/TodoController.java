@@ -25,7 +25,6 @@ public class TodoController {
         List<Todo> list = todoDao.list();
         model.addAttribute("todoList", list);
 
-
         return "home";
     }
 
