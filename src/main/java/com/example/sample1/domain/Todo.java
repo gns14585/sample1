@@ -2,7 +2,6 @@ package com.example.sample1.domain;
 
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 @Data
 public class Todo {
