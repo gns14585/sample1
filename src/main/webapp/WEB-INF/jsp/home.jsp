@@ -12,17 +12,39 @@
     <title>Title</title>
 </head>
 <body>
-<h3>할 일</h3>
+<style>
+    h1, h2, h4 {
+        width: 100%;
+        text-align: center;
+    }
+    table {
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    tr, th, td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+    .tinp {
+        width: 250px;
+        height: 150px;
+        border-radius: 10px;
+    }
+</style>
+<h1>To do List</h1>
 <h4>
     <form action="/add" method="post">
-        <input type="text" name="todo" placeholder="할 일을 입력하세요">
+        <input type="text" name="todo" class="tinp">
+        <br> <br>
         <button>추가</button>
     </form>
 </h4>
 
 <hr>
 
-<h4>할 일 목록</h4>
+<h2>목록</h2>
 <div>
     <table>
         <tr>
