@@ -10,9 +10,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.awt.*;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -32,12 +35,37 @@ public class TodoController {
     }
 
     @PostMapping("/add")
-    public String add(Todo todo, RedirectAttributes rttr) throws SQLException {
+    public String add(Todo todo,
+                      MultipartFile[] files,
+                      RedirectAttributes rttr) throws SQLException, IOException {
         // 새 할일 추가 하고
-        boolean result = service.insert(todo);
+        boolean result = service.insert(todo, files);
         // 결과 model에 넣고
 
         // home으로 redirect
         return "redirect:/";
     }
+
+    @GetMapping("files")
+    public void listFiles(@RequestParam("id") Integer todoId, Model model) {
+        List<String> filePathList = service.listFiles(todoId);
+        model.addAttribute("filePathList", filePathList);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
